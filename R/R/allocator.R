@@ -434,12 +434,12 @@ robyn_allocator <- function(robyn_object = NULL,
   if (optim_algo == "MMA_AUGLAG") {
     local_opts <- list(
       "algorithm" = "NLOPT_LD_MMA",
-      "xtol_rel" = 1.0e-11
+      "xtol_rel" = 1.0e-10
     )
   } else if (optim_algo == "SLSQP_AUGLAG") {
     local_opts <- list(
       "algorithm" = "NLOPT_LD_SLSQP",
-      "xtol_rel" = 1.0e-11
+      "xtol_rel" = 1.0e-10
     )
   }
 
@@ -456,7 +456,7 @@ robyn_allocator <- function(robyn_object = NULL,
       lb = lb, ub = ub,
       opts = list(
         "algorithm" = "NLOPT_LD_AUGLAG",
-        "xtol_rel" = 1.0e-11,
+        "xtol_rel" = 1.0e-10,
         "maxeval" = maxeval,
         "local_opts" = local_opts
       ),
@@ -471,7 +471,7 @@ robyn_allocator <- function(robyn_object = NULL,
       lb = lb_ext, ub = ub_ext,
       opts = list(
         "algorithm" = "NLOPT_LD_AUGLAG",
-        "xtol_rel" = 1.0e-11,
+        "xtol_rel" = 1.0e-10,
         "maxeval" = maxeval,
         "local_opts" = local_opts
       ),
@@ -491,7 +491,7 @@ robyn_allocator <- function(robyn_object = NULL,
       ub = rep(total_response, length(ub)),
       opts = list(
         "algorithm" = "NLOPT_LD_AUGLAG",
-        "xtol_rel" = 1.0e-11,
+        "xtol_rel" = 1.0e-10,
         "maxeval" = maxeval,
         "local_opts" = local_opts
       ),
@@ -507,7 +507,7 @@ robyn_allocator <- function(robyn_object = NULL,
       ub = rep(total_response, length(ub)),
       opts = list(
         "algorithm" = "NLOPT_LD_AUGLAG",
-        "xtol_rel" = 1.0e-11,
+        "xtol_rel" = 1.0e-10,
         "maxeval" = maxeval,
         "local_opts" = local_opts
       ),
