@@ -103,10 +103,11 @@ robyn_allocator <- function(robyn_object = NULL,
                             export = TRUE,
                             quiet = FALSE,
                             ui = FALSE,
+                            xtol_rel = 1.0e-10,
                             ...) {
   #####################################
   #### Set local environment
-
+  print(paste("Valore di xtol_rel:", xtol_rel))
   ### Use previously exported model using json_file
   if (!is.null(json_file)) {
     if (is.null(InputCollect)) {
@@ -434,12 +435,12 @@ robyn_allocator <- function(robyn_object = NULL,
   if (optim_algo == "MMA_AUGLAG") {
     local_opts <- list(
       "algorithm" = "NLOPT_LD_MMA",
-      "xtol_rel" = 1.0e-10
+      "xtol_rel" = xtol_rel
     )
   } else if (optim_algo == "SLSQP_AUGLAG") {
     local_opts <- list(
       "algorithm" = "NLOPT_LD_SLSQP",
-      "xtol_rel" = 1.0e-10
+      "xtol_rel" = xtol_rel
     )
   }
 
@@ -456,7 +457,7 @@ robyn_allocator <- function(robyn_object = NULL,
       lb = lb, ub = ub,
       opts = list(
         "algorithm" = "NLOPT_LD_AUGLAG",
-        "xtol_rel" = 1.0e-10,
+        "xtol_rel" = xtol_rel,
         "maxeval" = maxeval,
         "local_opts" = local_opts
       ),
@@ -471,7 +472,7 @@ robyn_allocator <- function(robyn_object = NULL,
       lb = lb_ext, ub = ub_ext,
       opts = list(
         "algorithm" = "NLOPT_LD_AUGLAG",
-        "xtol_rel" = 1.0e-10,
+        "xtol_rel" = xtol_rel,
         "maxeval" = maxeval,
         "local_opts" = local_opts
       ),
@@ -491,7 +492,7 @@ robyn_allocator <- function(robyn_object = NULL,
       ub = rep(total_response, length(ub)),
       opts = list(
         "algorithm" = "NLOPT_LD_AUGLAG",
-        "xtol_rel" = 1.0e-10,
+        "xtol_rel" = xtol_rel,
         "maxeval" = maxeval,
         "local_opts" = local_opts
       ),
@@ -507,7 +508,7 @@ robyn_allocator <- function(robyn_object = NULL,
       ub = rep(total_response, length(ub)),
       opts = list(
         "algorithm" = "NLOPT_LD_AUGLAG",
-        "xtol_rel" = 1.0e-10,
+        "xtol_rel" = xtol_rel,
         "maxeval" = maxeval,
         "local_opts" = local_opts
       ),
